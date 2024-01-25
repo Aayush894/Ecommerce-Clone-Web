@@ -1,2 +1,2 @@
-# Ecommerce-Clone-Web
-A ecommerece clone website part of journey of learning MERN stack.
+# Food-Delivery App Clone
+A clone app, part of journey of learning MERN stack.
