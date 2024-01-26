@@ -9,23 +9,22 @@ export default function Corousel() {
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
+               
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
+                    <div className="carousel-caption" style={{zIndex:"10"}}>
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+                            <button className="btn btn-success text-white" type="submit">Search</button>
                         </form>
                     </div>
-                </div>
-                <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGRlxdqWYn4QywHU32D7ZIrIkIoNb3xj9m1jdN7P6BoWq6FRYReD3PtDC8PlEaE_707M&usqp=CAU" className="d-block w-100" alt="..." />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGRlxdqWYn4QywHU32D7ZIrIkIoNb3xj9m1jdN7P6BoWq6FRYReD3PtDC8PlEaE_707M&usqp=CAU" className="d-block w-100 img-fluid img-thumbnail" style={{filter: "brightness(50%)"}} alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src="https://st2.depositphotos.com/2723423/9878/i/450/depositphotos_98782232-stock-photo-big-cheeseburger-with-french-fries.jpg" className="d-block w-100" alt="..." />
+                        <img src="https://st2.depositphotos.com/2723423/9878/i/450/depositphotos_98782232-stock-photo-big-cheeseburger-with-french-fries.jpg" className="d-block w-100 img-fluid img-thumbnail" style={{filter: "brightness(50%)"}} alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src="https://img.freepik.com/free-photo/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table_2829-19631.jpg" className="d-block w-100" alt="..." />
+                        <img src="https://img.freepik.com/free-photo/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table_2829-19631.jpg" className="d-block w-100 img-fluid img-thumbnail" style={{filter: "brightness(50%)"}} alt="..." />
                     </div>
                 </div>
 

@@ -8,7 +8,7 @@ export default function () {
         <>
             <div> <NavBar /> </div>
             <div> <Corousel/> </div>
-            <div> <Card /> </div>
+            <div className="m-3"> <Card /> </div>
             <div> <Footer /> </div>
         </>
     )
