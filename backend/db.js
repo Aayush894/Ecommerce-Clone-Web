@@ -1,33 +1,26 @@
 import 'dotenv/config'
 import mongoose from 'mongoose' ; 
 import {DB_NAME} from './constants.js';
-console.log(DB_NAME);
+// console.log(DB_NAME);
 
-const connectDB = async () => { 
+const connectDB = async () => {
     try {
-        // console.log(process.env.MONGODB_URI);
-        const connectionInstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`, {
-            useNewUrlParser: true, 
-            useUnifiedTopology: true, 
-            useCreateIndex: true, 
-        })
-        .then(() => console.log("DB Connected"))
-        .catch( (err) => console.log(err)) ; 
+        const connectionString = `${process.env.MONGODB_URI}/${DB_NAME}`;
+        await mongoose.connect(connectionString);
 
-        console.log(`\n MongoDB connected DB HOST: ${connectionInstance.connection.host}`)
+        console.log("DB Connected");
 
-        const fetched_data = await mongoose.connection.db.collection("users") ; 
-        // console.log(fetched_data.find({})) ; 
-         
-       fetched_data.find({}).toArray(function(err, data) {
-            
-            if (err) console.log(err);
-            else console.log(data);
-        }) 
+        console.log(`\nMongoDB connected. DB HOST: ${mongoose.connection.host}`);
+
+        // Fetch data from the 'users' collection using Mongoose model
+        const User = mongoose.model('User'); // Replace 'User' with your actual Mongoose model name
+        const userData = await User.find({});
+        // console.log(userData);
+        
     } catch (error) {
-        console.log("MONGODB connection Failed", error) ; 
-        process.exit(1) ;
+        console.error("MONGODB connection Failed", error);
+        process.exit(1);
     }
-}
+};
 
 export default connectDB;
