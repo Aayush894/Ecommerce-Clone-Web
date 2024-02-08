@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 export default function Card() {
@@ -9,7 +10,7 @@ export default function Card() {
                     fontFamily: "ariel",
                     maxHeight: "360px"
                 }}>
-                    <img className="card-img-top" src="..." alt="Card image cap" />
+                    <img className="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStK-M23NCWUZ50kQKGjA7YNPPGYVRiF79oIA&usqp=CAU" alt="Card image cap" />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">This is TextArea</p>
