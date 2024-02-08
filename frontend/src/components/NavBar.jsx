@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { Link } from 'react-router-dom'
 export default function NavBar() {
@@ -14,6 +15,9 @@ export default function NavBar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/login">Login</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/createuser">Signup</Link>
             </li>
 
           </ul>
