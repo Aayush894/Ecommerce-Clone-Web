@@ -1,19 +1,23 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 
-export default function Card() {
+export default function Card({...props}) {
+    let options = props.options;
+    // console.log(options[0]) ;
+    let priceOptions = Object.keys(options[0]);
+    console.log(priceOptions);
+
     return (
         <>
             <div>
-                <div className="card mt-3" style={{
+                <div className="card mt-3 embed-responsive embed-responsive-16by9" style={{
                     width: "18rem",
                     fontFamily: "ariel",
                     maxHeight: "360px"
                 }}>
-                    <img className="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStK-M23NCWUZ50kQKGjA7YNPPGYVRiF79oIA&usqp=CAU" alt="Card image cap" />
+                    <img className="card-img-top embed-responsive-item" src={props.imgSrc} style={{height:"120px", objectFit:"fill"}} alt="Card image cap" />
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is TextArea</p>
+                        <h5 className="card-title">{props.foodName}</h5>
                         <div className='container w-100'>
                             <select className='m-2 h-100 bg-success rounded' >
                                 {Array.from(Array(6), (e, i) => {
@@ -24,8 +28,9 @@ export default function Card() {
                                 )}
                             </select>
                             <select className='m-2 h-100 bg-success rounded' >
-                                <option value="Half">Half</option>
-                                <option value="Full">Full</option>
+                                {priceOptions.map((data) => {
+                                    return <option key={data} value={data}> {data} </option>
+                                })}
                             </select>
 
                             <div className="d-inline h-100 fs-5">
