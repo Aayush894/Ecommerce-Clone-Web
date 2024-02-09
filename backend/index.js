@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import connectDB from "./db.js" ; 
 import router from './routes/CreateUser.js'; 
-
+import DisplayData from './routes/DisplayData.js'
 const app = express() ;
 
 const corsOptions = {
@@ -15,6 +15,7 @@ app.use(cors(corsOptions)) ;
 
 app.use(express.json()) ; 
 app.use('/api', router) ; 
+app.use('/api', DisplayData) ; 
 
 connectDB() ; 
 

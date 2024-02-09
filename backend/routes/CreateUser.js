@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 import { User } from "../models/User.js";
 import { body, validationResult } from "express-validator";
-
+import jwt from "jsonwebtoken" ; 
 import bcrypt from "bcryptjs" ;
 
 router.post(
@@ -58,17 +58,26 @@ router.post(
     try {
 
       const user = await User.findOne({email});
-      console.log(user) ; 
+      // console.log(user) ; 
 
       if (!user) {
         res.status(400).json({ errors: "Try Login with correct credentials" })
       }
-      else if (password !== user.password) {
+
+      const pwdCompare = await bcrypt.compare(req.body.password, user.password) ;
+
+      if (!pwdCompare) {
         res.status(400).json({ errors: "Try Login with correct credentials" })
       }
-      else {
-        res.json({ success: true });
+      const data = { 
+        user: {
+          id: user._id
+        }
       }
+
+      const authToken = jwt.sign(data, process.env.JWT_SECRET);
+      res.json({ success: true, authToken});
+      
 
     } catch (error) {
 
