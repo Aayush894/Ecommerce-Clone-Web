@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Card from '../components/Card'
-import Corousel from '../components/Corousel'
 
 export default function Home() {
     const [search, setSearch] = useState('');
@@ -81,10 +80,12 @@ export default function Home() {
                                     </div>
                                     <hr />
                                     {foodItem.length !== 0 ?
+                                
                                         foodItem.filter((item) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(search.toLowerCase()))
                                             .map(filterItems => {
                                                 return (
                                                     <div className="col-12 col-md-6 col-lg-3" key={filterItems._id}>
+                                                        {console.log(filterItems)}
                                                         <Card
                                                             foodItem={filterItems}
                                                             options={filterItems.options[0]}
