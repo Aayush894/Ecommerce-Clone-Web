@@ -1,9 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Badge from 'react-bootstrap/Badge';
+import Model from '../Model.jsx';
+import Cart from '../pages/Cart';
+import { useCart } from './ContextReducer';
 
 export default function NavBar() {
-
+  let data = useCart();
+  const [cartView, setCartView] = useState(false); 
   const navigate = useNavigate() ;
 
   const handleLogout = () => {
@@ -38,12 +43,13 @@ export default function NavBar() {
             </div>
             : 
             <div>
-              <Link className = "btn" to="/cart">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="mx-3 bi bi-cart" viewBox="0 0 16 16" to="/cart">
+              <div className = "btn mx-2" onClick={() => {setCartView(true)}}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16" to="/cart">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                 </svg>
-              </Link>
-
+                <Badge pill bg="danger"> {data.length} </Badge>
+              </div>
+              {cartView? <Model onClose={() => setCartView(false)}> <Cart/> </Model> : null}
               <div className='btn bg-white text-danger mx-1' onClick={handleLogout}>
                 Logout
               </div>
