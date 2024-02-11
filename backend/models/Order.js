@@ -1,6 +1,10 @@
 import mongoose from 'mongoose'; 
 
 const { Schema} = mongoose ; 
+const handleDate = () => {
+    const date = new Date();
+    return date.toLocaleString();
+}
 
 const OrderSchema = new Schema({
     email : {
@@ -12,6 +16,10 @@ const OrderSchema = new Schema({
         type: Array, 
         required: true,
     },
+    order_date: {
+        type: String, 
+        default: handleDate,
+    }
 })
 
 export const Order = mongoose.model('Order', OrderSchema);

@@ -42,7 +42,7 @@ function Cart() {
     const response = await fetch("http://localhost:5000/api/orderData", {
       method: 'POST', 
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       }, 
       body: JSON.stringify({
         order_data: data, 
@@ -60,34 +60,34 @@ function Cart() {
   //   try {
   //     const userEmail = localStorage.getItem("userEmail");
   
-      // Check if userEmail is null or undefined
-      // if (!userEmail) {
-      //   // throw new Error("User email not found in localStorage");
+  //     Check if userEmail is null or undefined
+  //     if (!userEmail) {
+  //       // throw new Error("User email not found in localStorage");
 
-      // }
+  //     }
   
-      // const response = await fetch("http://localhost:5173/api/orderData", {
-      //   method: 'POST',
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     email: userEmail,
-      //     order_data: data,
-      //     order_date: new Date().toDateString(),
-      //   })
-      // });
+  //     const response = await fetch("http://localhost:5000/api/orderData", {
+  //       method: 'POST',
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         email: userEmail,
+  //         order_data: data,
+  //         order_date: new Date().toDateString(),
+  //       })
+  //     });
   
-      // if (!response.ok) {
-      //   throw new Error(`HTTP error! Status: ${response.status}`);
-      // }
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! Status: ${response.status}`);
+  //     }
   
-      // If response is successful, dispatch action to drop cart
-    //   dispatch({ type: "DROP" });
-    // } catch (error) {
-    //   console.error("Error during checkout:", error);
-    //   // Handle the error here, such as displaying a message to the user
-    // }
+  //     If response is successful, dispatch action to drop cart
+  //     dispatch({ type: "DROP" });
+  //   } catch (error) {
+  //     console.error("Error during checkout:", error);
+  //     // Handle the error here, such as displaying a message to the user
+  //   }
   // }
   
   if (data.length === 0) {

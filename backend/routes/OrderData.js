@@ -6,7 +6,6 @@ const router = express.Router();
 router.post("/orderData", async (req, res) => {
   try {
     const { email, order_data } = req.body;
-
     // Validate that email and order_data are provided
     if (!email || !order_data) {
       return res.status(400).json({ error: "Email and order data are required" });
@@ -26,8 +25,9 @@ router.post("/orderData", async (req, res) => {
       const newOrder = new Order({
         email,
         order_data: [order_data],
-        // order_date: new Date().toDateString(),
+        order_date: new Date().toLocaleString(), // Set the order_date field explicitly
       });
+      // console.log(newOrder.order_date) ; 
       await newOrder.save();
       return res.status(201).json({ success: true, message: "Order created successfully" });
     }
@@ -36,5 +36,14 @@ router.post("/orderData", async (req, res) => {
     return res.status(500).json({ error: "Server Error" });
   }
 });
+
+router.post('/myorderData', async (req, res) => {
+  try {
+    const myData = await Order.findOne({'email': req.body.email}); 
+    await res.json({orderData: myData})
+  } catch (error) {
+    return res.status(500).json({ error: "Server Error" });
+  }
+})
 
 export default router; // Exporting router as the default export
