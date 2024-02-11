@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
 
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", location: "" });
+
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault(); // synthetic event. 
         const response = await fetch("http://localhost:5000/api/createuser", {
@@ -21,6 +24,7 @@ function Signup() {
         if (!json.success) {
             alert("Enter Valid Credentials")
         }
+        navigate("/login");
     };
 
     const onChange = (e) => {

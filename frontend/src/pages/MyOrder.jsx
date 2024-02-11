@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
@@ -50,7 +51,7 @@ function MyOrder() {
                                         <p className="card-text">Size: {orderDetail.size}</p>
                                         <p className="card-text">Price: ₹{orderDetail.price}/-</p>
                                     </div>
-                                ), [])}
+                                ))}
                             </div>
                         </div>
                     ))
