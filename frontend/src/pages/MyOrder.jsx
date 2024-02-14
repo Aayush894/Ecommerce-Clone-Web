@@ -7,6 +7,7 @@ function MyOrder() {
     const [orderData, setOrderData] = useState({ orderData: [] });
 
     const fetchMyOrder = async () => {
+
         try {
             const response = await fetch("http://localhost:5000/api/myorderData", {
                 method: 'POST',
@@ -39,12 +40,14 @@ function MyOrder() {
             </div>
 
             <div className="container mt-5">
-                {orderData.orderData && orderData.orderData.length !== 0 ? (
-                    orderData.orderData.map((orderItem) => (
+                {console.log(orderData)}
+                
+                {orderData.orderData?.order_data && orderData.orderData.order_data.length !== 0 ? (
+                    orderData.orderData.order_data.map((orderItem) => (
                         <div key={orderItem._id} className="card mb-3">
                             <div className="card-header">{orderItem.order_date}</div>
                             <div className="card-body">
-                                {orderItem.order_data.map((orderDetail, index) => (
+                                {orderItem.map((orderDetail, index) => (
                                     <div key={index} className="mb-3">
                                         <h5 className="card-title">{orderDetail.name}</h5>
                                         <p className="card-text">Quantity: {orderDetail.qty}</p>

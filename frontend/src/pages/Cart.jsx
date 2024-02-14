@@ -42,8 +42,10 @@ function Cart() {
     const response = await fetch("http://localhost:5000/api/orderData", {
       method: 'POST', 
       headers: {
-        "Content-Type": "text/plain",
+        "Content-Type": "application/json",
       }, 
+     
+      
       body: JSON.stringify({
         order_data: data, 
         email:userEmail,

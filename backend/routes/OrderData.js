@@ -1,7 +1,11 @@
 import express from "express";
 import { Order } from "../models/Order.js";
+import cors from 'cors'; // Import CORS middleware
 
 const router = express.Router();
+
+// Apply CORS middleware for all routes in this router
+router.use(cors());
 
 router.post("/orderData", async (req, res) => {
   try {
@@ -44,6 +48,6 @@ router.post('/myorderData', async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: "Server Error" });
   }
-})
+});
 
 export default router; // Exporting router as the default export
