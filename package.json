@@ -2,7 +2,7 @@
   "name": "food-delivery-app",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "server": "nodemon backend/index.js",
