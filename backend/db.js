@@ -1,11 +1,11 @@
-import 'dotenv/config'
 import mongoose from 'mongoose' ; 
 import {DB_NAME} from './constants.js';
-// console.log(DB_NAME);
+console.log(DB_NAME);
 
 const connectDB = async () => {
     try {
-        const connectionString = `${process.env.MONGODB_URI}/${DB_NAME}`;
+        const connectionString = `${process.env.MONGODB_URI}${DB_NAME}`;
+        console.log(connectionString)
         await mongoose.connect(connectionString);
 
         console.log("DB Connected");

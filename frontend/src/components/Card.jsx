@@ -25,7 +25,7 @@ export default function Card({ ...props }) {
     if (food) {
       if (food.size === size) {
         await dispatch({ type: "UPDATE", id: props.foodItem._id, price: finalPrice, qty: qty });
-        console.log("Item already in cart with same size. Updating quantity.");
+        // console.log("Item already in cart with same size. Updating quantity.");
       } else {
         await dispatch({
           type: "ADD",
@@ -36,7 +36,7 @@ export default function Card({ ...props }) {
           size: size,
           img: props.foodItem.img,
         });
-        console.log("Item already in cart but with different size. Adding a new one.");
+        // console.log("Item already in cart but with different size. Adding a new one.");
       }
     } else {
       await dispatch({
@@ -48,7 +48,7 @@ export default function Card({ ...props }) {
         size: size,
         img: props.foodItem.img,
       });
-      console.log("Item not in cart. Adding new item.");
+      // console.log("Item not in cart. Adding new item.");
     }
   };  
 

@@ -1,1 +1,1 @@
-export const DB_NAME = 'foodhuntmern' ;
+export const DB_NAME = 'foodhunt'; 
