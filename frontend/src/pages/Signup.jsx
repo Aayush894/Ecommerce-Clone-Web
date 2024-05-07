@@ -10,7 +10,7 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // synthetic event. 
-        const response = await fetch("http://localhost:5000/api/createuser", {
+        const response = await fetch("http://localhost:4000/api/createuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
