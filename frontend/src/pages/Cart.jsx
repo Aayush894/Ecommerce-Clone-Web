@@ -39,7 +39,7 @@ function Cart() {
   // error hai isme
   const handleCheckOut = async () => {
     const userEmail = localStorage.getItem("userEmail"); 
-    const response = await fetch("http://localhost:4000/api/orderData", {
+    const response = await fetch("/api/orderData", {
       method: 'POST', 
       headers: {
         "Content-Type": "application/json",
