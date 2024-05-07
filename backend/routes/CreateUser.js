@@ -31,10 +31,10 @@ router.post(
         location,
       });
 
-      res.json({ success: true });
+      res.status(200).json({ success: true });
     } catch (error) {
       console.log(error);
-      res.json({ success: false });
+      res.status(500).json({ success: false });
     }
   }
 );
@@ -76,12 +76,12 @@ router.post(
       }
 
       const authToken = jwt.sign(data, process.env.JWT_SECRET);
-      res.json({ success: true, authToken});
+      res.status(200).json({ success: true, authToken});
       
 
     } catch (error) {
 
-      res.json({success : false});
+      res.status(500).json({success : false});
     }
   }
 );
